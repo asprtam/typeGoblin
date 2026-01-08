@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "module": "nodenext",
+        "checkJs": true,
+        "noImplicitOverride": false,
+        "moduleResolution": "nodenext"
+    }
+}
