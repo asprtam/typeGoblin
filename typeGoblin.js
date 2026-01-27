@@ -733,6 +733,4 @@ const test4 = TypeGoblin.validateObjectMap(test3Map, {});
 /** @type {TG.ArrayLooksmax<[['aaa', 'sd'], ['bbb', 'sdfsf']]>['=>']} */
 let test5;
 
-
-
 export { TypeGoblin, TG, TGObjectProperty };
