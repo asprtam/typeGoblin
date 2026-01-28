@@ -1,17 +1,12 @@
-// simple conditional
+//@ts-ignore
+import { TG } from "../typeGoblin";
+
+// conditional
 
 // https://www.typescriptlang.org/docs/handbook/2/conditional-types.html
 
-/**
- * @template {*} T
- * @typedef {{'=>':
- * ({'val': true} & //switch cases
- * {[id: String]: false})[`${T}`] //default
- * }} SimpleConditional
- */
-
 const check = (foo) => {
-    switch(`${foo}`) {
+    switch(foo) {
         case 'val': {
             return true;
         }
@@ -22,16 +17,89 @@ const check = (foo) => {
 }
 
 /**
- * Transform values of array to keys in object
- * @template {Array<String>} T
- * @typedef {{'=>': {[K in T[number]]: *}}} ArrayHitsDifferent
+ * @template {String|Number|null} T
+ * @typedef {{'=>': ({'val': true} & {[id: String]: false})[T]}} SimpleConditional
  */
 
+/** @type {SimpleConditional<'val'>['=>']} */
+let test_check;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
- * Checks if T0 is in T1 array
- * @template {*} T0
- * @template {Array<Boolean | String | Number | BigInt | undefined>} T1 
- * @typedef {{'=>': ( 
- * {[K in T1[number] as `${K}`]: true} & //@ts-ignore
- * {[id: String]: false})[`${T0}`]}} IsGiving
+ * @template {String|Number|null} T
+ * @template {Array<String|Number|null>} CONDITIONS
+ * @typedef {{'=>': ({[K in CONDITIONS[number]]: true} & {[id: String|number|null]: false})[T]}} MoreAdvancedConditional
  */
+
+//this also basically becomes Array.prototype.includes
+/** @type {MoreAdvancedConditional<'aaa', ['aaa'|'bbb', 'bbb']>['=>']} */
+let test_check1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * @template {String|Number|null} T
+ * @template {{[id: String|Number|null]: *}} CONDITIONS
+ * @typedef {{'=>': (CONDITIONS & {[id: String|number|null]: never})[T]}} MoreMoreAdvancedConditional
+ */
+
+/** @typedef {(import('./2').Person) & {species: 'Homo sapiens', occupation: String}} Person */
+/** @typedef {{name: String, species: 'Felis Catus', tailLenght: Number}} Cat */
+
+/** @type {MoreMoreAdvancedConditional<'cat', {'cat': Cat, 'human': Person}>['=>']} */
+let test_check2;

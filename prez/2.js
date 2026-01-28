@@ -4,7 +4,7 @@ import { TG } from "../typeGoblin";
 /**
  * @typedef {Object} PersonRequired
  * @property {String} name
- * @property {String} lastName
+ * @property {String} lastname
  */
 
 /**
@@ -17,5 +17,7 @@ import { TG } from "../typeGoblin";
 
 //intelisesnse makes sense :D
 /** @typedef {TG.StealHisLook<PersonRequired & PersonOptional>['=>']} Person */
+
+/** @typedef {PersonRequired & {[id: String]: *}} Person2OldWay */
 
 /** @typedef {TG.StealHisLook<PersonRequired & {[id: String]: *}>['=>']} Person2 */
