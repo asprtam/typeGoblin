@@ -5,6 +5,7 @@ import { TG } from "../typeGoblin";
  * @typedef {Object} PersonRequired
  * @property {String} name
  * @property {String} lastname
+ * @property {Number} age
  */
 
 /**

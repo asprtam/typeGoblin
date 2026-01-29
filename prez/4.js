@@ -64,6 +64,19 @@ let test_sharedKeys;
 
 
 
+/** 
+ * https://www.typescriptlang.org/docs/handbook/utility-types.html#extracttype-union
+ * TYPESCRIPT extract vairant
+ * @template {{[id: String]: *}} T0
+ * @template {{[id: String]: *}} T1
+ * @typedef {{'=>': {[K in Extract<keyof T0, keyof T1>]: T0[K] | T1[K]}}} SharedKeysTS
+ */
+
+/** @type {SharedKeysTS<Cat, Person>['=>']} */
+let test_sharedKeysTs;
+
+
+
 
 
 
@@ -224,6 +237,19 @@ let test_clear;
 /** @type {NotSharedKeys2<Cat, Person>['=>']} */
 let test_notSharedKeys2;
 
+/**
+ * typescript omit variant
+ * https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys
+ * @template {{[id: String]: *}} T0
+ * @template {{[id: String]: *}} T1
+ * @typedef {TG.StealHisLook<(
+ * {[K in keyof Omit<T0, (keyof T0) & (keyof T1)>]: T0[K]} &
+ * {[K in keyof Omit<T1, (keyof T0) & (keyof T1)>]: T1[K]}
+ * )>} NotSharedKeysTS
+ */
+/** @type {NotSharedKeysTS<Cat, Person>['=>']} */
+let test_notSharedKeysTS;
+
 
 
 
@@ -321,7 +347,16 @@ let test_union;
  * @typedef {{'=>': ({[K in (keyof T0) | (keyof T1)]: MoreMoreAdvancedConditional<K & String, T1|T0>['=>']})}} Union2
  */
 
+/**
+ * @template {{[id: String]: *}} T0
+ * @template {{[id: String]: *}} T1
+ * @typedef {{'=>': ({[K in (keyof T0) | (keyof T1)]: T0[K & keyof T0] | T1[K & keyof T1]})}} Union3
+ */
+
 /** @typedef {Union2<Cat, Person>['=>']} CatPerson */
 
 /** @type {Union2<Cat, Person>['=>']} */
 let test_union2;
+
+/** @type {Union3<Cat, Person>['=>']} */
+let test_union3;

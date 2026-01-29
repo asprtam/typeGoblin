@@ -3,7 +3,7 @@ import { TG } from "../typeGoblin";
 
 // conditional
 
-// https://www.typescriptlang.org/docs/handbook/2/conditional-types.html
+// https://www.typescriptlang.org/docs/handbook/2/conditional-types.html - this is only a simple IF
 
 const check = (foo) => {
     switch(foo) {
@@ -98,8 +98,8 @@ let test_check1;
  * @typedef {{'=>': (CONDITIONS & {[id: String|number|null]: never})[T]}} MoreMoreAdvancedConditional
  */
 
-/** @typedef {(import('./2').Person) & {species: 'Homo sapiens', occupation: String}} Person */
-/** @typedef {{name: String, species: 'Felis Catus', tailLenght: Number}} Cat */
+/** @typedef {(import('./2').Person) & {species: 'Homo Sapiens', occupation: String}} Person */
+/** @typedef {{name: String, age: Number, species: 'Felis Catus', tailLenght: Number}} Cat */
 
 /** @type {MoreMoreAdvancedConditional<'cat', {'cat': Cat, 'human': Person}>['=>']} */
 let test_check2;
